@@ -70,25 +70,6 @@ $(document).ready(function() {
     if (e.type == 'mousemove') {
       if (flag) {
         draw(prevX,prevY,currX,currY,color,thickness);
-
-        /*broadcast and pass drawing variables
-        socketio.emit('Canvas Updated', {
-          prevX: prevX / width,
-          prevY: prevY / height,
-          currX: currX / width,
-          currY: currY/ height,
-          color: color,
-          thickness: thickness
-        });
-      
-      //update the canvas
-      socketio.on('update value',function(msg){
-
-      var w = $canvas.width();
-      var h = $canvas.height();
-
-      draw(msg.prevX*w,msg.prevY*h,msg.currX*w,msg.currY*h,msg.color,msg.thickness);
-          });*/
         }
       }
     });
@@ -111,12 +92,6 @@ $(document).ready(function() {
 
   $('.clear').on('click',function(e){
     clearBtn();
-
-    //broadcast that the clear button is clicked
-    /*
-    socketio.emit('Clear Clicked', {
-      color: 'rgb(242, 242, 242)'
-      });*/
     });
 
   function clearBtn(){
@@ -127,26 +102,8 @@ $(document).ready(function() {
     ctx.fillRect(0, 0, c_width, c_height);
     }
 
-    //update canvas
-    
-    /*socketio.on('update clear',function(msg){
-      var w = $canvas.width();
-      var h = $canvas.height();
-
-      clearBtn(msg.color);
-    });*/
-
 });
 
-
-
-function openNav() {
-document.getElementById("myNav").style.width = "25%";
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
 
 
 
